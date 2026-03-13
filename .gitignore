@@ -50,3 +50,6 @@ documentation/doxygen/*.dot
 
 # Pycache
 __pycache__
+
+# ROOT build directory
+build/

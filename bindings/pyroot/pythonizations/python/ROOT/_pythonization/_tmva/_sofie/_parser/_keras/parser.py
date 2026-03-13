@@ -6,6 +6,8 @@ from .layers.batchnorm import MakeKerasBatchNorm
 from .layers.binary import MakeKerasBinary
 from .layers.concat import MakeKerasConcat
 from .layers.conv import MakeKerasConv
+from .layers.conv_transpose import MakeKerasConvTranspose
+from .layers.rnn import MakeKerasRNN
 from .layers.dense import MakeKerasDense
 from .layers.elu import MakeKerasELU
 from .layers.flatten import MakeKerasFlatten
@@ -63,12 +65,16 @@ mapKerasLayer = {
     "MaxPooling2D": MakeKerasPooling,
     "AveragePooling2D": MakeKerasPooling,
     "GlobalAveragePooling2D": MakeKerasPooling,
-    #  "SimpleRNN": MakeKerasRNN,
-    #  "GRU": MakeKerasRNN,
-    #  "LSTM": MakeKerasRNN,
+        "SimpleRNN": MakeKerasRNN,
+        "GRU": MakeKerasRNN,
+        "LSTM": MakeKerasRNN,
 }
 
-mapKerasLayerWithActivation = {"Dense": MakeKerasDense, "Conv2D": MakeKerasConv}
+mapKerasLayerWithActivation = {
+    "Dense": MakeKerasDense,
+    "Conv2D": MakeKerasConv,
+    "Conv2DTranspose": MakeKerasConvTranspose
+}
 
 
 def add_layer_into_RModel(rmodel, layer_data):
